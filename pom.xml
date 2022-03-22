@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.example</groupId>
+  <artifactId>JavaWeb</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <name>JavaWeb</name>
+  <packaging>war</packaging>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+      <junit.version>5.7.1</junit.version>
+      </properties>
+
+  <dependencies>
+      <!-- servlet依赖 -->
+      <dependency>
+          <groupId>javax.servlet</groupId>
+          <artifactId>javax.servlet-api</artifactId>
+          <version>4.0.1</version>
+          <scope>provided</scope>
+      </dependency>
+
+      <!-- junit依赖 -->
+      <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>4.13.2</version>
+          <scope>test</scope>
+      </dependency>
+
+      <!-- mysql依赖 -->
+      <dependency>
+          <groupId>mysql</groupId>
+          <artifactId>mysql-connector-java</artifactId>
+          <version>8.0.26</version>
+      </dependency>
+
+      <!-- mybatis依赖 -->
+      <dependency>
+          <groupId>org.mybatis</groupId>
+          <artifactId>mybatis</artifactId>
+          <version>3.5.7</version>
+      </dependency>
+
+
+      <!-- 运行日志 -->
+<!--      <dependency>-->
+<!--          <groupId>log4j</groupId>-->
+<!--          <artifactId>log4j</artifactId>-->
+<!--          <version>1.2.17</version>-->
+<!--      </dependency>-->
+
+      <!-- lombok依赖-> 快捷使用get set 构造器方法 -->
+      <dependency>
+          <groupId>org.projectlombok</groupId>
+          <artifactId>lombok</artifactId>
+          <version>1.18.20</version>
+          <scope>provided</scope>
+      </dependency>
+
+      <!-- 添加slf4j日志api -->
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+          <version>1.7.20</version>
+      </dependency>
+      <!-- 添加logback-classic依赖 -->
+      <dependency>
+          <groupId>ch.qos.logback</groupId>
+          <artifactId>logback-classic</artifactId>
+          <version>1.2.3</version>
+      </dependency>
+      <!-- 添加logback-core依赖 -->
+      <dependency>
+          <groupId>ch.qos.logback</groupId>
+          <artifactId>logback-core</artifactId>
+          <version>1.2.3</version>
+      </dependency>
+
+      <!--   JSON依赖   -->
+      <dependency>
+          <groupId>com.alibaba</groupId>
+          <artifactId>fastjson</artifactId>
+          <version>1.2.78</version>
+      </dependency>
+
+      <!--jsp的依赖-->
+      <dependency>
+          <groupId>javax.servlet.jsp</groupId>
+          <artifactId>javax.servlet.jsp-api</artifactId>
+          <version>2.3.1</version>
+          <scope>provided</scope>
+      </dependency>
+
+      <!--JSTL-->
+      <dependency>
+          <groupId>javax.servlet</groupId>
+          <artifactId>jstl</artifactId>
+          <version>1.2</version>
+      </dependency>
+      <dependency>
+          <groupId>taglibs</groupId>
+          <artifactId>standard</artifactId>
+          <version>1.1.2</version>
+      </dependency>
+
+
+
+  </dependencies>
+
+  <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+<!--                <configuration>-->
+<!--                    <port>80</port>-->
+                    <!--访问端口号 -->
+                    <!--项目访问路径
+                        未配置访问路径: http://localhost:80/tomcat-demo2/a.html
+                        配置/后访问路径: http://localhost:80/a.html(端口80可以省略)
+                        如果配置成 /hello,访问路径会变成什么?
+                            答案: http://localhost:80/hello/a.html
+                    -->
+<!--                    <path>/</path>-->
+<!--                </configuration>-->
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.1</version>
+            </plugin>
+        </plugins>
+  </build>
+</project>
