@@ -8,6 +8,30 @@ import java.util.List;
 
 public class UserService {
 
+    public void updateByUser(User user){
+        SqlSession sqlSession = MyBatisUtils.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        mapper.updateByUser(user);
+        sqlSession.commit();
+        MyBatisUtils.closeSqlSession(sqlSession);
+    }
+
+    public void deleteById(Integer id){
+        SqlSession sqlSession = MyBatisUtils.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        mapper.deleteById(id);
+        sqlSession.commit();
+        MyBatisUtils.closeSqlSession(sqlSession);
+    }
+
+    public void deleteByArr(){
+        SqlSession sqlSession = MyBatisUtils.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        int[] ids = new int[]{11,12,13};
+        mapper.deleteByArr(ids);
+        sqlSession.commit();
+        MyBatisUtils.closeSqlSession(sqlSession);
+    }
 
     public List<User> selectAll(){
         SqlSession sqlSession = MyBatisUtils.openSession();
@@ -31,14 +55,14 @@ public class UserService {
         return user;
     }
 
-    public User selectUser(String username, String password){
+    public User selectByUsernameAndPassword(String username, String password){
 
         //1.获取sqlSession 对象
         SqlSession sqlSession = MyBatisUtils.openSession();
         //2.获取mapper对象
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         //3.调用mapper中的方法 selectUser
-        User user = mapper.selectUser(username, password);
+        User user = mapper.selectByUsernameAndPassword(username, password);
         //4.关闭sqlSession对象
         sqlSession.close();
 

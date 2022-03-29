@@ -23,7 +23,7 @@ public class Test {
     @org.junit.Test
     public void test2(){
         // 通过用户名和密码进行查询
-        User user = userService.selectUser("清梦楼", "123");
+        User user = userService.selectByUsernameAndPassword("清梦楼", "123");
         System.out.println(user);
         // 通过id进行查询
         User user1 = userService.selectById(2);
@@ -32,25 +32,31 @@ public class Test {
     }
     @org.junit.Test
     public void test3(){
-        userService.add(new User(null,"楼明月","123",18));
+        userService.add(new User(null,"楼明月11","123",18));
+//        userService.add(new User(null,"楼明月12","123",18));
+//        userService.add(new User(null,"楼明月13","123",18));
         for (User user : userService.selectAll()) {
             System.out.println(user);
         }
     }
 
-
-
-
-
-
+    @org.junit.Test
+    public void test4(){
+        userService.deleteByArr();
+    }
+    @org.junit.Test
+    public void test5(){
+        userService.deleteById(17);
+    }
 
     @org.junit.Test
-    public void test() throws IOException {
-        SqlSession sqlSession = MyBatisUtils.openSession();
-        BrandMapper mapper = sqlSession.getMapper(BrandMapper.class);
-        List<Brand> brands = mapper.selectAll();
-        for (Brand brand : brands) {
-            System.out.println(brand);
-        }
+    public void test6(){
+        User user = new User();
+        user.setId(10);
+        user.setPassword("123456");
+        user.setAge(16);
+        userService.updateByUser(user);
     }
+
+
 }
